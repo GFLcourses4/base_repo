@@ -13,7 +13,7 @@ class UserDTOTest {
         userDTO.setId(1);
         userDTO.setName("Test");
         UserDTO userConstructorDTO = new UserDTO(1, "Test");
-
+        System.out.println("Conflict Message");
         Assertions.assertEquals(userDTO, userConstructorDTO);
     }
 
