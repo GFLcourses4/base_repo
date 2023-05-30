@@ -54,5 +54,6 @@ class UserDTOTest {
         Assertions.assertEquals(1, emptyUserDTO.getId());
         Assertions.assertEquals(TEST, emptyUserDTO.getName());
     }
+    
 
 }
