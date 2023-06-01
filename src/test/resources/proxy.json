@@ -1,0 +1,8 @@
+{
+  "host" : "localhost",
+  "post" : 8081,
+  "credsDTO" : {
+    "username" : "Test",
+    "password" : "qwe"
+  }
+}
