@@ -1,0 +1,53 @@
+1) create ssh keys / read docs how to connect to github / send public key to connect to remote virtual machine https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+2) refresh packages - sudo apt-get update
+3) install java (https://openjdk.java.net/install/) - sudo apt-get install openjdk-11-jdk
+4) install maven - sudo apt-get install maven
+4) install GUI and VNC server follow this guide https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-20-04
+5) install google chrome
+
+
+192.168.2.122
+
+VNC server:
+password: server
+
+
+ssh-keygen
+
+ssh-copy-id taras@192.168.2.122
+
+pscp D:\Docs\Java\Keys\20210830\oleksiv_rsa taras@192.168.2.122:/home/taras/.ssh/oleksiv_rsa
+chmod 600 ~/.ssh/oleksiv_rsa
+
+pscp D:\Projects\Java\chromedriver taras@192.168.2.122:/home/taras/prg/chromedriver
+
+
+pscp D:\Docs\Java\qacluster-e-driver-deploy.sh taras@192.168.2.122:/home/taras/deployments/qacluster-e-driver-deploy.sh
+chmod 600 ~/deployments/qacluster-e-driver-deploy.sh
+
+
+# start the ssh-agent in the background
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+
+$ ssh-add ~/.ssh/oleksiv_rsa
+
+
+
+
+$ ssh -T git@github.com
+# Attempts to ssh to GitHub
+
+> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+> Are you sure you want to continue connecting (yes/no)?
+
+> Hi username! You've successfully authenticated, but GitHub does not
+> provide shell access.
+
+
+tr -d "\r" < oldname.sh > newname.sh
+
+restart VNC service
+STOP 	- sudo vncserver -kill :1
+Start 	- sudo vncserver :1
