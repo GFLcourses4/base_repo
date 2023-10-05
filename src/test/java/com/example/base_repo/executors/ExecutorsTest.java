@@ -3,6 +3,8 @@ package com.example.base_repo.executors;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -40,7 +42,7 @@ public class ExecutorsTest {
     }
 
     @Test
-    public void FixedThreadPullTest() {
+    public void FixedThreadPullTest() throws ExecutionException, InterruptedException {
         ThreadPoolExecutor executorService = (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
         executorService.submit(() -> {
             try {
@@ -65,7 +67,6 @@ public class ExecutorsTest {
                 throw new RuntimeException(e);
             }
         });
-
         assertEquals(2, executorService.getPoolSize());
         assertEquals(1, executorService.getQueue().size());
     }

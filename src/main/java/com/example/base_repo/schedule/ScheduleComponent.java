@@ -13,8 +13,8 @@ public class ScheduleComponent {
     @Value(value = "#{testBla.type}")
     private String type;
 
-    @Async
-    @Scheduled(fixedRateString = "#{testBla.arg}")
+//    @Async
+//    @Scheduled(fixedRateString = "#{testBla.arg}")
     public void scheduleTask() throws InterruptedException {
         System.out.println("ARG - " + arg);
         System.out.println("type - " + type);
